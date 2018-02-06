@@ -446,12 +446,12 @@ public class PullRefreshRecyclerView extends RecyclerView {
 
     public interface LoadingListener {
         /**
-         *
+         * 下拉刷新
          */
         void onRefresh();
 
         /**
-         *
+         * 加载更多
          */
         void onLoadMore();
     }
