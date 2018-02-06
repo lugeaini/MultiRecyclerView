@@ -54,9 +54,25 @@ public class HeaderFooterRecyclerView extends RecyclerView {
         }
     }
 
+    public void clearHeaderViews(){
+        mHeaderViews.clear();
+        mHeaderTypes.clear();
+        if (mWrapAdapter != null) {
+            mWrapAdapter.notifyDataSetChanged();
+        }
+    }
+
     public void addFooterView(View view) {
         mFooterTypes.add(FOOTER_INIT_INDEX + mFooterViews.size());
         mFooterViews.add(view);
+        if (mWrapAdapter != null) {
+            mWrapAdapter.notifyDataSetChanged();
+        }
+    }
+
+    public void clearFooterViews(){
+        mFooterViews.clear();
+        mFooterTypes.clear();
         if (mWrapAdapter != null) {
             mWrapAdapter.notifyDataSetChanged();
         }

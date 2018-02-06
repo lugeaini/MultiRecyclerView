@@ -7,18 +7,18 @@
     android:gravity="bottom">
 
     <RelativeLayout
-        android:id="@+id/listview_header_content"
+        android:id="@+id/header_content"
         android:layout_width="match_parent"
         android:layout_height="60dp">
 
         <ImageView
-            android:id="@+id/listview_header_arrow"
+            android:id="@+id/header_arrow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"/>
 
         <ImageView
-            android:id="@+id/listview_header_progressbar"
+            android:id="@+id/header_progressbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"

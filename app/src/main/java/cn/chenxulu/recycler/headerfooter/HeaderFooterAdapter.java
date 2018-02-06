@@ -13,9 +13,10 @@ import java.util.List;
 import cn.chenxulu.widget.recycler.R;
 
 /**
- * Created by xulu on 15/06/2017.
+ *
+ * @author xulu
+ * @date 15/06/2017.
  */
-
 public class HeaderFooterAdapter extends RecyclerView.Adapter<HeaderFooterAdapter.MyViewHolder> {
     private Context mContext;
     private List<Integer> mList;

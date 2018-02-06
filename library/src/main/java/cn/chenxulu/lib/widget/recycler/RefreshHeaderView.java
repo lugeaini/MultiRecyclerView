@@ -53,8 +53,8 @@ public class RefreshHeaderView extends LinearLayout {
         addView(mContainer, new LayoutParams(LayoutParams.MATCH_PARENT, 0));
         setGravity(Gravity.BOTTOM);
 
-        mArrowImageView = (ImageView) findViewById(R.id.listview_header_arrow);
-        mProgressBar = (ImageView) findViewById(R.id.listview_header_progressbar);
+        mArrowImageView = (ImageView) findViewById(R.id.header_arrow);
+        mProgressBar = (ImageView) findViewById(R.id.header_progressbar);
 
         measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         mMeasuredHeight = getMeasuredHeight();
@@ -192,7 +192,7 @@ public class RefreshHeaderView extends LinearLayout {
     private void showLoading() {
         mProgressBar.setVisibility(View.VISIBLE);
         mProgressBar.setImageResource(R.drawable.pull_recyclerview_header_loading_icon);
-        Animation second = AnimationUtils.loadAnimation(getContext(), R.anim.xrecyclerview_anim_rotate);
+        Animation second = AnimationUtils.loadAnimation(getContext(), R.anim.pull_recyclerview_anim_rotate);
         mProgressBar.startAnimation(second);
     }
 

@@ -8,14 +8,14 @@
     android:padding="8dp">
 
     <ProgressBar
-        android:id="@+id/listview_foot_progress"
+        android:id="@+id/foot_progress"
         style="@android:style/Widget.ProgressBar"
         android:layout_width="30dip"
         android:layout_height="30dip"
         android:indeterminateDrawable="@drawable/pull_recyclerview_footer_loading_anim"/>
 
     <TextView
-        android:id="@+id/listview_foot_more"
+        android:id="@+id/foot_more"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"

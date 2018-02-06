@@ -3,6 +3,7 @@ package cn.chenxulu.lib.widget.recycler.adapter;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListAdapter;
 
 /**
  * @author xulu
