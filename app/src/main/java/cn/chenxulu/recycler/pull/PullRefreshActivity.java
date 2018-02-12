@@ -3,6 +3,7 @@ package cn.chenxulu.recycler.pull;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,10 @@ public class PullRefreshActivity extends AppCompatActivity implements PullRefres
         mRecyclerView = findViewById(R.id.recycler_view);
         LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(manager);
+
+        //GridLayoutManager gridLayoutManager = new GridLayoutManager(this,3);
+        //mRecyclerView.setLayoutManager(gridLayoutManager);
+
         mRecyclerView.setLoadingListener(this);
 
         View headerView = LayoutInflater.from(this).inflate(R.layout.layout_item_header_view, mRecyclerView, false);
@@ -36,7 +41,7 @@ public class PullRefreshActivity extends AppCompatActivity implements PullRefres
 
         mList = new ArrayList<>();
 
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 5; i++) {
             mList.add(i);
         }
         mRecyclerView.setLoadMoreEnabled(true);

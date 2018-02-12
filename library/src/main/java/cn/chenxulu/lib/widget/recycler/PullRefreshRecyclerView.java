@@ -1,6 +1,7 @@
 package cn.chenxulu.lib.widget.recycler;
 
 import android.content.Context;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -155,6 +156,23 @@ public class PullRefreshRecyclerView extends RecyclerView {
             return mWrapAdapter.getOriginalAdapter();
         }
         return null;
+    }
+
+    @Override
+    public void setLayoutManager(LayoutManager layout) {
+        super.setLayoutManager(layout);
+        if(mWrapAdapter != null){
+            if (layout instanceof GridLayoutManager) {
+                final GridLayoutManager gridManager = ((GridLayoutManager) layout);
+                gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                    @Override
+                    public int getSpanSize(int position) {
+                        return (mWrapAdapter.isHeader(position) || mWrapAdapter.isFooter(position) || mWrapAdapter.isRefreshHeader(position))
+                                ? gridManager.getSpanCount() : 1;
+                    }
+                });
+            }
+        }
     }
 
     @Override
@@ -384,6 +402,18 @@ public class PullRefreshRecyclerView extends RecyclerView {
         @Override
         public void onAttachedToRecyclerView(RecyclerView recyclerView) {
             super.onAttachedToRecyclerView(recyclerView);
+            RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();
+            if (manager instanceof GridLayoutManager) {
+                final GridLayoutManager gridManager = ((GridLayoutManager) manager);
+                gridManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                    @Override
+                    public int getSpanSize(int position) {
+                        return (isHeader(position) || isFooter(position) || isRefreshHeader(position))
+                                ? gridManager.getSpanCount() : 1;
+                    }
+                });
+            }
+
             adapter.onAttachedToRecyclerView(recyclerView);
         }
 
